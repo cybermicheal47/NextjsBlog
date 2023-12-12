@@ -1,0 +1,42 @@
+.container {
+}
+
+.cattitle {
+  color: rgb(120, 120, 245);
+}
+
+.content {
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.imgcontainer {
+  flex: 1;
+  height: 400px;
+  position: relative;
+}
+.img {
+  object-fit: cover;
+}
+
+.contenttext {
+  flex: 1;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titled {
+  font-size: 40px;
+  font-weight: bold;
+}
+.desc {
+  font-size: 22px;
+}
+
+.content:nth-child(2n + 1) {
+  flex-direction: row-reverse;
+}

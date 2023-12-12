@@ -1,0 +1,26 @@
+.container {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} /*      this  container centered the navbar */
+
+.logo {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.links {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.logout {
+  background-color: darkblue;
+  border: none;
+  padding: 6px;
+  color: whitesmoke;
+  border-radius: 6px;
+  cursor: pointer;
+}

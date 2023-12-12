@@ -1,0 +1,23 @@
+.imgcontainer {
+  flex: 1;
+  gap: 50px;
+}
+.img {
+  object-fit: cover;
+}
+.container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.title {
+  margin-bottom: 10px;
+}
+.desc {
+  font-size: 20px;
+}

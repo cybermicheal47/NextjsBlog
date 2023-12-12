@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+/* .imgcontainer {
+  height: 15px;
+  width: 15px;
+  position: relative;
+} */
+
+.socialicon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}

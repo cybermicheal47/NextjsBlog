@@ -1,0 +1,49 @@
+.maintitle {
+  font-size: 100px;
+  font-weight: bold;
+}
+.subtitle {
+  margin: 20px 0px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentdetail {
+  border: 5px solid #c2bbbb;
+  border-radius: 6px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-size: cover;
+}
+
+.contentdetail:nth-child(1) {
+  background: url("/htmlweb.png");
+}
+.contentdetail:nth-child(2) {
+  background: url("/htmlweb.png");
+}
+.contentdetail:nth-child(3) {
+  background: url("/htmlweb.png");
+}
+
+.contentdetail:hover .title {
+  color: rgb(92, 92, 201);
+}
+
+.title {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-weight: bold;
+  font-size: 40px;
+}
