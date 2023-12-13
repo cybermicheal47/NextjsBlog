@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  const res = await fetch("http://localhost:3000/api/posts", {
     cache: "no-store",
   });
   // The return value is *not* serialized
@@ -23,7 +23,11 @@ const Blogg = async () => {
   return (
     <div className={styles.maincontainer}>
       {data.map((item) => (
-        <Link href={item._id} className={styles.container} key={item.id}>
+        <Link
+          href={`/blogg/${item._id}`}
+          className={styles.container}
+          key={item.id}
+        >
           <div className={styles.imgcontainer}>
             <Image
               src="/a.jpg"

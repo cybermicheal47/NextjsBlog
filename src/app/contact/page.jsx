@@ -3,6 +3,12 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import Contactus from "public/contact-us.png";
 import Button from "@/components/Button/Button";
+
+export const metadata = {
+  title: "Contact Us",
+  description: " this is our contact information, we are available 247",
+};
+
 function Contact() {
   return (
     <div className={styles.container}>

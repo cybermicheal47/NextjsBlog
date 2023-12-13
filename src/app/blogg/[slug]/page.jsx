@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 async function getData(slug) {
-  const dataurl = `https://jsonplaceholder.typicode.com/posts/${slug}`;
+  const dataurl = `http://localhost:3000/api/posts/${slug}`;
   const res = await fetch(dataurl, {
     cache: "no-store",
   });
