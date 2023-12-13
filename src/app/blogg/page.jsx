@@ -3,74 +3,42 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
+async function getData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    cache: "no-store",
+  });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 const Blogg = async () => {
+  const data = await getData();
   return (
     <div className={styles.maincontainer}>
-      <Link href="/blogg/testId" className={styles.container}>
-        <div className={styles.imgcontainer}>
-          <Image
-            src="/a.jpg"
-            width={400}
-            height={250}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Loperum </h1>
-          <p className={styles.desc}>
-            {" "}
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            dolorem laboriosam rerum? Sapiente quaerat enim obcaecati ipsam
-            deleniti, aperiam sit, fugiat laboriosam dolor asperiores
-            repudiandae rerum earum iste, ut fuga.
-          </p>
-        </div>
-      </Link>
-
-      <Link href="/blogg/testId" className={styles.container}>
-        <div className={styles.imgcontainer}>
-          <Image
-            src="/c.jpg"
-            width={400}
-            height={250}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Loperum </h1>
-          <p className={styles.desc}>
-            {" "}
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            dolorem laboriosam rerum? Sapiente quaerat enim obcaecati ipsam
-            deleniti, aperiam sit, fugiat laboriosam dolor asperiores
-            repudiandae rerum earum iste, ut fuga.
-          </p>
-        </div>
-      </Link>
-
-      <Link href="/blogg/testId" className={styles.container}>
-        <div className={styles.imgcontainer}>
-          <Image
-            src="/b.jpg"
-            width={400}
-            height={250}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Loperum </h1>
-          <p className={styles.desc}>
-            {" "}
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            dolorem laboriosam rerum? Sapiente quaerat enim obcaecati ipsam
-            deleniti, aperiam sit, fugiat laboriosam dolor asperiores
-            repudiandae rerum earum iste, ut fuga.
-          </p>
-        </div>
-      </Link>
+      {data.map((item) => (
+        <Link href={item._id} className={styles.container} key={item.id}>
+          <div className={styles.imgcontainer}>
+            <Image
+              src="/a.jpg"
+              width={400}
+              height={250}
+              alt=""
+              className={styles.img}
+            />
+          </div>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title} </h1>
+            <p className={styles.desc}>{item.desc}</p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };

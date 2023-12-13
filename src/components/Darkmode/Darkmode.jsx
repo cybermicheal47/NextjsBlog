@@ -2,7 +2,7 @@
 
 import React, { useContext } from "react";
 import styles from "./Darkmode.module.css";
-import { Darkmodecontext } from "../../../context/Darkmodecontext";
+import { Darkmodecontext } from "../../context/Darkmodecontext";
 
 const Darkmode = () => {
   const { toogle, mode } = useContext(Darkmodecontext);
