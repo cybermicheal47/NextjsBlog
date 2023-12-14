@@ -1,12 +1,18 @@
 import mongoose from "mongoose";
 
-const connect = async () => {
+const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODATA);
+    await mongoose.connect(process.env.MONGODATA, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // Add other options if needed
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
-    throw new Error("connection failed");
-    handleError(error);
+    console.error("Connection to MongoDB failed:", error.message);
+    // You might want to throw an error here or handle it differently based on your app's requirements
+    throw new Error("Connection to MongoDB failed");
   }
 };
 
-export default connect;
+export default connectDB;

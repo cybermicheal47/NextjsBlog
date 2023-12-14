@@ -13,3 +13,16 @@ export const GET = async (request, { params }) => {
     return new NextResponse("Something went Wrong", { status: 500 });
   }
 };
+
+export const DELETE = async (request, { params }) => {
+  const { slug } = params;
+  try {
+    await connect();
+
+    await Blogpost.findByIdAndDelete(slug);
+
+    return new NextResponse("Post Deleted", { status: 200 });
+  } catch (error) {
+    return new NextResponse("Something went Wrong", { status: 500 });
+  }
+};
