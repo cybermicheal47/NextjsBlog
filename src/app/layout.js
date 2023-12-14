@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { DarkmodeProvider } from "@/context/Darkmodecontext";
 
+import Authprovider from "@/components/Authprovider/Authprovider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,11 +17,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <DarkmodeProvider>
-          <div className="container">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
+          <Authprovider>
+            <div className="container">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </Authprovider>
         </DarkmodeProvider>
       </body>
     </html>
